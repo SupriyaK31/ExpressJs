@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add product</title>
+    <style>
+      body{
+        margin: 0;
+        padding: 0;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      }
+       .main-header{
+        width: 100;
+       height: inherit;
+       background-color: rgb(241, 172, 21);
+       padding: 0 1.5rem;
+       }
+       .main-header-nav{
+        margin: 0;
+        height: 100;
+        align-items: center;
+        display: flex;
+        padding: 0;
+       }
+       .main-header-item-list{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+       }
+       .main-header-item{
+        margin: 0 1rem;
+        padding: 0;
+       }
+       .main-header-item a{
+        color:white;
+        text-decoration: none;
+       }
+       .main-header-item a :hover,
+       .main-header-item a :active,
+       .main-header-item a.active {
+           color:rgb(169, 51, 199)
+       }
+       .form-control label,
+       .form-control input{
+        display: block;
+       }
+       .form-control input{
+        border: 1px solid rgb(187, 204, 250);
+        font:inherit;
+        border-radius: 2px;
+       }
+       .form-control{
+        margin: 1rem 0;
+       }
+       button{
+        font:inherit;
+        border: 1px solid rgb(115, 147, 236);
+        color:rgb(134, 174, 228);
+        background-color: white;
+        border-radius: 3px;
+        cursor: pointer;
+       }
+       button:hover,
+       button:active{
+        background-color: cadetblue;
+        color:white
+       }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-header-nav">
+            <ul class="main-header-item-list">
+                <li class="main-header-item"><a class="active" href="/">Shop</a></li>
+                <li class="main-header-item"><a href="/add-product">Add Product</a></li>
+            </ul>
+
+        </nav>
+    </header>
+    <main>
+    <form class="form-control" action="/add-product" method="POST">
+        <input type="text" name="title">
+        <button type="submit">Add Product</button>
+    </form>
+    </main>
+</body>
+</html>
