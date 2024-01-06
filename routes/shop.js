@@ -1,13 +1,12 @@
-const express=require('express');
-const router=express.Router();
-const path=require('path');
-const rootDir=require('../util/path')
-router.get('/',(req,res,next)=>{
-   //res.sendFile(path.join(__dirname,'../','views','shop.html'));
-  // another way
-  // res.sendFile(path.join(__dirname,'..','views','shop.html'));
-  //another way
-  res.sendFile(path.join(rootDir,'views','shop.html'));
-});
+const path = require('path');
 
-module.exports=router;
+const express = require('express');
+
+const controllerProduct=require('../controllers/products');
+const adminData = require('./admin');
+
+const router = express.Router();
+
+router.get('/', controllerProduct.getProduct);
+
+module.exports = router;
