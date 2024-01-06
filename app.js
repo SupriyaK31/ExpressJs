@@ -1,14 +1,24 @@
-const express=require('express');
-const bodyParser=require('body-parser');
+const path = require('path');
 
+const express = require('express');
+const bodyParser = require('body-parser');
 
-const app=express();
-app.use(bodyParser.urlencoded({ extended: true }));
+const app = express();
 
-const loginRoute=require('./routes/login');
-const chatRoute=require('./routes/chat');
+app.set('view engine', 'ejs');
+app.set('views', 'views');
 
-app.use(loginRoute);
-app.use(chatRoute);
+const adminRoute = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/admin', adminRoute);
+app.use(shopRoutes);
+
+app.use((req, res, next) => {
+  res.status(404).render('404', { pageTitle: 'Page Not Found' });
+});
 
 app.listen(3000);
